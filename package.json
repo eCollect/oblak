@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "CQRS/ES Distributed Application Builder",
   "main": "index.js",
-  "private": true,
+  "private": false,
   "scripts": {
     "test": "test.js"
 	},
