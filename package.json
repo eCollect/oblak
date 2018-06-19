@@ -1,16 +1,16 @@
 {
   "name": "oblak",
-  "version": "0.0.13",
+  "version": "0.0.4",
   "description": "CQRS/ES Distributed Application Builder",
   "main": "index.js",
   "private": false,
   "scripts": {
     "test": "test.js"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/eCollect/oblak.git"
-	},
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eCollect/oblak.git"
+  },
   "devDependencies": {
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
@@ -20,10 +20,12 @@
   "license": "UNLICENSED",
   "dependencies": {
     "app-root-path": "^2.0.1",
+    "body-parser": "^1.18.3",
     "chalk": "^2.4.1",
     "command-line-args": "^5.0.2",
     "command-line-commands": "^2.0.1",
     "command-line-usage": "^5.0.5",
+    "cors": "^2.8.4",
     "cqrs-domain": "^2.14.1",
     "cqrs-eventdenormalizer": "^1.16.0",
     "cqrs-saga": "^1.11.0",
