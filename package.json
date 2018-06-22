@@ -29,7 +29,7 @@
     "cqrs-domain": "^2.14.2",
     "cqrs-eventdenormalizer": "^1.16.0",
     "cqrs-saga": "^1.11.0",
-    "cqrs-swissknife": "^0.3.23",
+    "cqrs-swissknife": "^0.3.231",
     "express": "^4.16.3",
     "inquirer": "^6.0.0",
     "json5": "^1.0.1",
