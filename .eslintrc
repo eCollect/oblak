@@ -24,6 +24,7 @@
 			2,
 			"tab"
 		],
+		"nonblock-statement-body-position": "off",
 		"no-mixed-operators": [ "error", {"allowSamePrecedence": true}],
 		"no-tabs": 0,
 		"strict": [
