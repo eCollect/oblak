@@ -1,6 +1,6 @@
 {
   "name": "oblak",
-  "version": "0.0.533",
+  "version": "0.0.54",
   "description": "CQRS/ES Distributed Application Builder",
   "main": "index.js",
   "private": false,
@@ -19,6 +19,7 @@
   "author": "eCollect AG.",
   "license": "UNLICENSED",
   "dependencies": {
+    "ajv": "^6.5.1",
     "app-root-path": "^2.0.1",
     "body-parser": "^1.18.3",
     "chalk": "^2.4.1",
