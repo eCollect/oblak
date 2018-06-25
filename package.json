@@ -1,6 +1,6 @@
 {
   "name": "oblak",
-  "version": "0.0.613",
+  "version": "0.0.62",
   "description": "CQRS/ES Distributed Application Builder",
   "main": "index.js",
   "private": false,
@@ -31,7 +31,8 @@
     "cqrs-domain": "^2.14.2",
     "cqrs-eventdenormalizer": "^1.16.0",
     "cqrs-saga": "^1.11.0",
-    "cqrs-swissknife": "^0.3.241",
+    "cqrs-swissknife": "^0.3.26",
+    "elasticsearch": "^15.0.0",
     "express": "^4.16.3",
     "inquirer": "^6.0.0",
     "json5": "^1.0.1",
