@@ -12,7 +12,7 @@
     "url": "https://github.com/eCollect/oblak.git"
   },
   "devDependencies": {
-    "eslint": "^5.0.0",
+    "eslint": "^5.0.1",
     "eslint-config-airbnb-base": "^13.0.0",
     "eslint-plugin-import": "^2.13.0"
   },
@@ -31,12 +31,12 @@
     "cqrs-domain": "^2.14.2",
     "cqrs-eventdenormalizer": "^1.16.0",
     "cqrs-saga": "^1.11.0",
-    "cqrs-swissknife": "^0.3.26",
+    "cqrs-swissknife": "^0.3.27",
     "elasticsearch": "^15.0.0",
     "express": "^4.16.3",
     "inquirer": "^6.0.0",
     "json5": "^1.0.1",
-    "kellner": "0.0.34",
+    "kellner": "0.0.361",
     "micromustache": "^5.4.0",
     "mongodb-uri": "^0.9.7",
     "mongoose": "^5.1.6",
