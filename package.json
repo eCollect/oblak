@@ -1,6 +1,6 @@
 {
   "name": "oblak",
-  "version": "0.0.666",
+  "version": "0.0.6666",
   "description": "CQRS/ES Distributed Application Builder",
   "main": "index.js",
   "private": false,
@@ -36,7 +36,7 @@
     "express": "^4.16.3",
     "inquirer": "^6.0.0",
     "json5": "^1.0.1",
-    "kellner": "0.0.375",
+    "kellner": "0.0.3751",
     "micromustache": "^5.4.0",
     "mongodb-uri": "^0.9.7",
     "mongoose": "^5.1.6",
