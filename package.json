@@ -1,6 +1,6 @@
 {
   "name": "oblak",
-  "version": "0.0.78",
+  "version": "0.0.781",
   "description": "CQRS/ES Distributed Application Builder",
   "main": "index.js",
   "private": false,
@@ -8,7 +8,7 @@
     "test": "test.js"
 	},
 	"bin": {
-		"oblak": "./bin/cli.js"
+		"oblak": "./lib/bin/cli.js"
 	},
   "repository": {
     "type": "git",
