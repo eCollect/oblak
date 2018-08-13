@@ -7,16 +7,16 @@ const commandLineCommands = require('command-line-commands');
 const getUsage = require('command-line-usage');
 
 
-const konzola = require('../konzola');
-const packageJson = require('../../package.json');
-const optionDefinitions = require('../cli/optionDefinitons');
+const konzola = require('../lib/konzola');
+const packageJson = require('../package.json');
+const optionDefinitions = require('../lib/cli/optionDefinitons');
 
 const {
 	name,
 	version,
 } = packageJson;
 
-const commands = require('../cli/commands');
+const commands = require('../lib/cli/commands');
 
 (async () => {
 	konzola.header(`${name} ${version}`, {
