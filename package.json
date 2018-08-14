@@ -42,7 +42,7 @@
     "express": "^4.16.3",
     "inquirer": "^6.1.0",
     "json5": "^1.0.1",
-    "kellner": "0.0.376",
+    "kellner": "0.0.381",
     "micromustache": "^5.4.0",
     "module-alias": "^2.1.0",
     "mongodb-uri": "^0.9.7",
