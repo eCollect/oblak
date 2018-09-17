@@ -1,6 +1,6 @@
 {
   "name": "oblak",
-  "version": "0.0.847",
+  "version": "0.0.848",
   "description": "CQRS/ES Distributed Application Builder",
   "main": "index.js",
   "private": false,
@@ -42,7 +42,7 @@
     "express": "^4.16.3",
     "inquirer": "^6.1.0",
     "json5": "^2.0.1",
-    "kellner": "0.0.4",
+    "kellner": "0.0.41",
     "lodash.merge": "^4.6.1",
     "micromustache": "^5.4.0",
     "module-alias": "^2.1.0",
