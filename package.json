@@ -45,6 +45,8 @@
     "json5": "^2.0.1",
     "kellner": "0.0.43",
     "lodash.merge": "^4.6.1",
+    "lodash.mergewith": "^4.6.1",
+    "lodash.union": "^4.6.0",
     "micromustache": "^5.4.0",
     "module-alias": "^2.1.0",
     "mongodb-uri": "^0.9.7",
