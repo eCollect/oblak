@@ -1,6 +1,6 @@
 {
   "name": "oblak",
-  "version": "0.0.899",
+  "version": "0.0.9",
   "description": "CQRS/ES Distributed Application Builder",
   "main": "index.js",
   "private": false,
