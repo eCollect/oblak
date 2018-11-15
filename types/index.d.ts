@@ -1,4 +1,30 @@
-declare module oblak {
+module 'oblak' {
+	namespace Tools {
+		interface Saga {
+			settings: (obj: any) => any;
+			only: {
+				ifExists: () => any;
+				ifNotExists: () => any;
+				if: (condition) => any;
+			},
+			shouldHandle: () => any;
+			identifier: () => Oblak.EventIdentityDefinition;
+		}
+	}
+
+
+	interface Tools {
+		saga: Tools.Saga;
+	}
+
+	class Oblak {
+		static tools : Tools;
+	}
+
+	export = Oblak;
+}
+
+namespace Oblak {
 	interface PlainObject {
 		[key: string]: any;
 	}
@@ -39,6 +65,7 @@ declare module oblak {
 		fullname: string;
 	};
 
+	type EventIdentityDefinition = string | ((event: OblakDomainEvent) => string);
 
 	type AggregateFunction<T> = (id?: string) => T;
 
@@ -57,8 +84,8 @@ declare module oblak {
 		type ReactionMiddleware = (event: OblakDomainEvent, saga: Model, app: Api) => void | Promise<any>;
 		type Reaction = Array<ReactionMiddleware> | ReactionMiddleware;
 
-		interface Identities {
-
+		interface Identity {
+			[key: string]: EventIdentityDefinition;
 		}
 
 		interface Rections {
