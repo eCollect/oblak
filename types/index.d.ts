@@ -274,7 +274,7 @@ declare namespace Oblak {
 	interface Readmodel extends Readmodel.Exports {}
 
 	namespace Domain {
-		interface Api extends Api.Base, Api.Readable, ReadableDomain {}
+		interface Api extends Api.Base, Api.Readable, Api.ReadableDomain {}
 
 		interface Command<TPayload> {
 			payload: TPayload;
@@ -329,7 +329,7 @@ declare namespace Oblak {
 		type CommandMiddleware<TApply, TPlayload> = (command?: Command<TPlayload>, aggregate?: Model<TApply>, app?: Api) => void | Promise<void>;
 		type CommandMiddlewares<TApply, TPlayload> = Array<CommandMiddleware<TApply, TPlayload>> | CommandMiddleware<TApply, TPlayload>;
 
-		type EventMiddleware = (event?: OblakDomainEvent, aggregate?: Model<TApply>) => void;
+		type EventMiddleware = (event?: OblakDomainEvent, aggregate?: Model<void>) => void;
 		type EVentMiddlewares = Array<EventMiddleware> | EventMiddleware;
 
 		interface Commands<TApply> {
