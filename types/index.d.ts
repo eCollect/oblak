@@ -1,20 +1,66 @@
-module 'oblak' {
+declare module 'oblak' {
 	namespace Tools {
+		type SettingsFunction = (obj) => any;
+		type AnyFunction = (...params) => any;
+
 		interface Saga {
-			settings: (obj: any) => any;
+			settings: SettingsFunction;
 			only: {
 				ifExists: () => any;
 				ifNotExists: () => any;
 				if: (condition) => any;
-			},
+			};
 			shouldHandle: () => any;
 			identifier: () => Oblak.EventIdentityDefinition;
 		}
+
+		interface Readmodels {
+			settings: SettingsFunction;
+			only: {
+				ifExists: () => any;
+				ifNotExists: () => any;
+				if: (condition: Function) => any;
+			};
+			extendPreEvent: () => any;
+			extendEvent: () => any;
+			identifier: () => any;
+		}
+
+		interface Domain {
+			settings: SettingsFunction;
+			command: {
+				only: {
+					ifExists: () => any;
+					ifNotExists: () => any;
+					ifValidatedBy: (validator: string | object | AnyFunction) => any;
+					ifState: (condition: function) => any;
+					after: (rule: function) => any;
+				}
+			};
+			event: {
+				settings: SettingsFunction;
+			};
+		}
+
+		interface Rest {
+			command: any;
+			readmodels: {
+				one: any;
+				list: any;
+				search: any;
+			};
+			services: any;
+			async: (middleware: (...params) => Promise<void>) => (...params) => void;
+		}
+
 	}
 
 
 	interface Tools {
 		saga: Tools.Saga;
+		readmodels: Tools.Readmodels;
+		domain: Tools.Domain;
+		rest: Tools.Rest;
 	}
 
 	class Oblak {
@@ -24,7 +70,7 @@ module 'oblak' {
 	export = Oblak;
 }
 
-namespace Oblak {
+declare namespace Oblak {
 	interface PlainObject {
 		[key: string]: any;
 	}
@@ -47,7 +93,7 @@ namespace Oblak {
 			revision;
 		};
 		fullname: string;
-	};
+	}
 
 	interface OblakReadmodelEvent {
 		payload: PlainObject;
@@ -63,7 +109,7 @@ namespace Oblak {
 			id: string;
 		}
 		fullname: string;
-	};
+	}
 
 	type EventIdentityDefinition = string | ((event: OblakDomainEvent) => string);
 
