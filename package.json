@@ -1,6 +1,6 @@
 {
   "name": "oblak",
-  "version": "0.0.903",
+  "version": "0.0.904",
   "description": "CQRS/ES Distributed Application Builder",
   "main": "index.js",
   "private": false,
@@ -9,8 +9,8 @@
   },
   "bin": {
     "oblak": "./bin/cli.js"
-	},
-	"types": "./types/index.d.ts",
+  },
+  "types": "./types/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/eCollect/oblak.git"

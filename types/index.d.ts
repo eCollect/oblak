@@ -1,30 +1,12 @@
 declare module 'oblak' {
+	// helpers
+	type AnyFunction<TReturn = any> = (...params) => TReturn;
+
 	namespace Tools {
 		type SettingsFunction = (obj) => any;
-		type AnyFunction = (...params) => any;
-
-		interface Saga {
-			settings: SettingsFunction;
-			only: {
-				ifExists: () => any;
-				ifNotExists: () => any;
-				if: (condition) => any;
-			};
-			shouldHandle: () => any;
-			identifier: () => Oblak.EventIdentityDefinition;
-		}
-
-		interface Readmodels {
-			settings: SettingsFunction;
-			only: {
-				ifExists: () => any;
-				ifNotExists: () => any;
-				if: (condition: Function) => any;
-			};
-			extendPreEvent: () => any;
-			extendEvent: () => any;
-			identifier: () => any;
-		}
+		// express
+		type ExpressMiddleware<TReturn = void> = (req: any, res?: any, next?: any) => TReturn;
+		type ExpressAsyncMiddleware = ExpressMiddleware<Promise<void>>;
 
 		interface Domain {
 			settings: SettingsFunction;
@@ -33,8 +15,8 @@ declare module 'oblak' {
 					ifExists: () => any;
 					ifNotExists: () => any;
 					ifValidatedBy: (validator: string | object | AnyFunction) => any;
-					ifState: (condition: function) => any;
-					after: (rule: function) => any;
+					ifState: (condition: AnyFunction) => any;
+					after: (rule: AnyFunction) => any;
 				}
 			};
 			event: {
@@ -42,38 +24,37 @@ declare module 'oblak' {
 			};
 		}
 
-		interface Rest {
-			command: any;
-			readmodels: {
-				one: any;
-				list: any;
-				search: any;
-			};
-			services: any;
-			async: (middleware: (...params) => Promise<void>) => (...params) => void;
-		}
-
-	}
-
 		interface Readmodels {
+			settings: SettingsFunction;
 			extendEvent: (obj: any) => any;
 			extendPreEvent: (obj: any) => any;
 			only: {
 				ifExists: () => any;
 				ifNotExists: () => any;
-				if: (condition) => any;
+				if: (condition: Function) => any;
 			},
 			identifier: (obj: any) => any;
 		}
 
+		interface Saga {
+			settings: SettingsFunction;
+			only: {
+				ifExists: () => any;
+				ifNotExists: () => any;
+				if: (condition: Function) => any;
+			};
+			shouldHandle: () => any;
+			identifier: () => Oblak.EventIdentityDefinition;
+		}
+
 		interface Rest {
-			services: (fn: any) => any,
+			services: (fn: AnyFunction) => ExpressMiddleware,
 			readmodels: {
-				one: (cmd: any, options?: any) => any;
-				list: (cmd: any, options?: any) => any;
+				one: (cmd: any, options?: any) => ExpressMiddleware;
+				list: (cmd: any, options?: any) => ExpressMiddleware;
 			},
-			command: (cmd: any, options?: any) => any,
-			async: (req: any, res?: any, next?: any) => any,
+			command: (cmd: any, options?: any) => ExpressMiddleware,
+			async: (asyncMiddleware: ExpressAsyncMiddleware ) => ExpressMiddleware;
 		}
 	}
 
@@ -86,6 +67,12 @@ declare module 'oblak' {
 
 	class Oblak {
 		static tools : Tools;
+		static debug : () => Oblak;
+		use: AnyFunction;
+		addHook: AnyFunction;
+		run: AnyFunction<Promise<any>>;
+		init: AnyFunction<Promise<any>>;
+		clear: AnyFunction<Promise<any>>;
 	}
 
 	export = Oblak;
@@ -162,9 +149,15 @@ declare namespace Oblak {
 		}
 	}
 
+	interface Data extends Data.Exports {}
+
 	namespace Api {
 		interface Writable<TCommand> {
 			getDomain: () => Domain<TCommand>;
+		}
+
+		interface ReadableDomain {
+			getDomain: () => DomainReadable;
 		}
 
 		interface Readable {
@@ -176,9 +169,11 @@ declare namespace Oblak {
 		}
 
 		interface Domain<TCommand> {}
+		interface DomainReadable {}
 		interface Readmodels {}
 
 		type Command<TPayload, TReturn> = (payload?:TPayload, metadata?:PlainObject) => TReturn;
+		type ReadableAggregate = (id:string) => Promise<any>;
 
 		interface ReadmodelQuery<T> extends PromiseLike<T> {
 			find: () => ReadmodelQuery<T>;
@@ -215,6 +210,7 @@ declare namespace Oblak {
 			reactions: Reactions;
 		}
 	}
+	interface Saga extends Saga.Exports {}
 
 	namespace Readmodel {
 		interface Api extends Api.Base, Api.Readable {}
@@ -232,7 +228,7 @@ declare namespace Oblak {
 		}
 
 		interface MongodbRepositorySettings {
-			// ToDo: indexes:
+			indexes: Array<any>;
 		}
 
 		interface Model {
@@ -254,6 +250,7 @@ declare namespace Oblak {
 		}
 
 		interface OblakAggregators {
+			[key: string]: any;
 		}
 
 		interface OblakRepositorySettings {
@@ -274,4 +271,96 @@ declare namespace Oblak {
 			repositorySettings?: RepositorySettings;
 		}
 	}
+	interface Readmodel extends Readmodel.Exports {}
+
+	namespace Domain {
+		interface Api extends Api.Base, Api.Readable, ReadableDomain {}
+
+		interface Command<TPayload> {
+			payload: TPayload;
+			metadata: OblakMetadataBase;
+		}
+
+		interface ModelApply {
+			(name: string, payload: PlainObject, metadata: OblakMetadataBase): void;
+		}
+
+		interface Model<TApply> {
+			id: string;
+
+			apply: TApply;
+			/**
+			 * Gets an attribute of the vm.
+			 * @param attr The attribute name.
+			 * @return The result value.
+			 *
+			 * @example:
+			 *     aggregate.get('firstname'); // returns 'Jack'
+			 */
+			get(attr: string): any;
+			/**
+			  * Sets attributes for the aggregate.
+			  *
+			  * @example:
+			  *     aggregate.set('firstname', 'Jack');
+			  *     // or
+			  *     aggregate.set({
+			  *          firstname: 'Jack',
+			  *          lastname: 'X-Man'
+			  *     });
+			  */
+			set(attribute: any, value?: any): void;
+
+			/**
+					 * Marks this aggregate as destroyed.
+					 */
+			destroy(): void;
+
+			/**
+			 * Returns true if this aggregate is destroyed.
+			 */
+			isDestroyed(): boolean;
+		}
+
+		interface GenericModelApply extends ModelApply {
+			[key: string]: (payload?: PlainObject, metadata?: OblakMetadataBase) => void;
+		}
+
+		type CommandMiddleware<TApply, TPlayload> = (command?: Command<TPlayload>, aggregate?: Model<TApply>, app?: Api) => void | Promise<void>;
+		type CommandMiddlewares<TApply, TPlayload> = Array<CommandMiddleware<TApply, TPlayload>> | CommandMiddleware<TApply, TPlayload>;
+
+		type EventMiddleware = (event?: OblakDomainEvent, aggregate?: Model<TApply>) => void;
+		type EVentMiddlewares = Array<EventMiddleware> | EventMiddleware;
+
+		interface Commands<TApply> {
+			[key: string]: CommandMiddlewares<TApply, PlainObject>;
+		}
+
+		interface Events {
+			[key: string]: EVentMiddlewares;
+		}
+
+		interface Aggregate extends Exports<GenericModelApply, Commands<GenericModelApply>> {
+		}
+
+		interface Exports<TApply, TCommands> {
+			/**
+			 * Aggregates initial stae
+			 */
+			initialState: PlainObject;
+			/**
+			 * Aggregate command defintion
+			 */
+			commands: TCommands;
+			/**
+			 * Your aggregate event definitions
+			 */
+			events: Events;
+			/**
+			 * Aggreagte ID Generator fuction
+			 */
+			idGenerator: (command?: Command<PlainObject>, app?: Api) => void | Promise<void>;
+		}
+	}
+	interface Aggregate extends Domain.Aggregate {}
 }
