@@ -1,15 +1,59 @@
 declare module 'oblak' {
 	namespace Tools {
+		type SettingsFunction = (obj) => any;
+		type AnyFunction = (...params) => any;
+
 		interface Saga {
-			settings: (obj: any) => any;
+			settings: SettingsFunction;
 			only: {
 				ifExists: () => any;
 				ifNotExists: () => any;
 				if: (condition) => any;
-			},
+			};
 			shouldHandle: () => any;
 			identifier: () => Oblak.EventIdentityDefinition;
 		}
+
+		interface Readmodels {
+			settings: SettingsFunction;
+			only: {
+				ifExists: () => any;
+				ifNotExists: () => any;
+				if: (condition: Function) => any;
+			};
+			extendPreEvent: () => any;
+			extendEvent: () => any;
+			identifier: () => any;
+		}
+
+		interface Domain {
+			settings: SettingsFunction;
+			command: {
+				only: {
+					ifExists: () => any;
+					ifNotExists: () => any;
+					ifValidatedBy: (validator: string | object | AnyFunction) => any;
+					ifState: (condition: function) => any;
+					after: (rule: function) => any;
+				}
+			};
+			event: {
+				settings: SettingsFunction;
+			};
+		}
+
+		interface Rest {
+			command: any;
+			readmodels: {
+				one: any;
+				list: any;
+				search: any;
+			};
+			services: any;
+			async: (middleware: (...params) => Promise<void>) => (...params) => void;
+		}
+
+	}
 
 		interface Readmodels {
 			extendEvent: (obj: any) => any;
@@ -35,7 +79,8 @@ declare module 'oblak' {
 
 	interface Tools {
 		saga: Tools.Saga;
-		readmodels: Api.Readmodels;
+		readmodels: Tools.Readmodels;
+		domain: Tools.Domain;
 		rest: Tools.Rest;
 	}
 
