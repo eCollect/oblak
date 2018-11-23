@@ -65,7 +65,7 @@ const commands = require('../lib/cli/commands');
 		}
 
 		await command.run({
-			name, version, konzola, optionDefinitions,
+			name, version, konzola, optionDefinitions, commands,
 		}, args);
 	} catch (e) {
 		handleException(e);
