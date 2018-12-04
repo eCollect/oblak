@@ -16,8 +16,8 @@
     "url": "https://github.com/eCollect/oblak.git"
   },
   "devDependencies": {
-    "eslint": "^5.3.0",
-    "eslint-config-ecollect-base": "^0.0.1",
+    "eslint": "^5.9.0",
+    "eslint-config-ecollect-base": "^0.0.3",
     "eslint-plugin-import": "^2.14.0"
   },
   "author": "eCollect AG.",
