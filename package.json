@@ -42,6 +42,7 @@
     "elasticsearch": "^15.2.0",
     "eventstore": "^1.14.3",
     "express": "^4.16.4",
+    "fast-stringify": "^1.1.1",
     "inquirer": "^6.2.1",
     "js-levenshtein": "^1.1.4",
     "json5": "^2.1.0",
