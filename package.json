@@ -38,7 +38,7 @@
     "cqrs-domain": "^2.14.6",
     "cqrs-eventdenormalizer": "^1.16.5",
     "cqrs-saga": "^1.11.12",
-    "cqrs-swissknife": "0.4.55",
+    "cqrs-swissknife": "0.4.56",
     "elasticsearch": "^15.2.0",
     "eventstore": "^1.14.3",
     "express": "^4.16.4",
