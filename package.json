@@ -35,7 +35,7 @@
     "command-line-commands": "^2.0.1",
     "command-line-usage": "^5.0.5",
     "cors": "^2.8.5",
-    "cqrs-domain": "^2.14.6",
+    "cqrs-domain": "^2.14.7",
     "cqrs-eventdenormalizer": "^1.16.5",
     "cqrs-saga": "^1.11.12",
     "cqrs-swissknife": "0.4.56",
