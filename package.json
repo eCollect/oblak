@@ -26,9 +26,11 @@
     "JSONStream": "^1.3.5",
     "ajv": "^6.7.0",
     "app-root-path": "^2.2.1",
-    "better-ajv-errors": "^0.6.1",
-    "body-parser": "^1.18.3",
+    "archiver": "^3.0.0",
+    "better-ajv-errors": "^0.6.4",
+    "body-parser": "^1.19.0",
     "bodybuilder": "^2.2.17",
+    "bson": "^4.0.2",
     "chalk": "^2.4.2",
     "chokidar": "^2.1.5",
     "cli-progress": "^2.1.1",
@@ -44,7 +46,8 @@
     "eventstore": "^1.14.4",
     "express": "^4.16.4",
     "fast-stringify": "^1.1.1",
-    "inquirer": "^6.2.2",
+    "fs-extra": "^7.0.1",
+    "inquirer": "^6.3.1",
     "js-levenshtein": "^1.1.6",
     "json5": "^2.1.0",
     "kellner": "0.0.52",
@@ -55,7 +58,7 @@
     "micromustache": "^5.4.0",
     "module-alias": "^2.2.0",
     "mongodb-uri": "^0.9.7",
-    "mongoose": "^5.4.22",
+    "mongoose": "^5.5.5",
     "mquery": "^3.2.0",
     "nanomatch": "^1.2.13",
     "node-spinner": "0.0.4",
@@ -64,6 +67,7 @@
     "require-dir": "^1.2.0",
     "resolve-from": "^4.0.0",
     "uuid": "^3.3.2",
-    "ws": "^6.2.1"
+    "ws": "^7.0.0",
+    "yauzl": "^2.10.0"
   }
 }
