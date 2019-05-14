@@ -1,6 +1,6 @@
 {
   "name": "oblak",
-  "version": "0.0.955-wip.2",
+  "version": "0.0.955-wip.3",
   "description": "CQRS/ES Distributed Application Builder",
   "main": "index.js",
   "private": false,
@@ -59,7 +59,6 @@
     "module-alias": "^2.2.0",
     "mongodb-uri": "^0.9.7",
     "mongoose": "^5.5.5",
-    "mquery": "^3.2.0",
     "nanomatch": "^1.2.13",
     "node-spinner": "0.0.4",
     "object-assign-deep": "^0.4.0",
