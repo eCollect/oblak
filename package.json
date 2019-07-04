@@ -50,7 +50,7 @@
     "inquirer": "^6.3.1",
     "js-levenshtein": "^1.1.6",
     "json5": "^2.1.0",
-    "kellner": "0.0.53",
+    "kellner": "0.0.54",
     "lodash.debounce": "^4.0.8",
     "lodash.merge": "^4.6.1",
     "lodash.mergewith": "^4.6.1",
