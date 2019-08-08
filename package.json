@@ -60,6 +60,7 @@
     "mongodb": "^3.2.7",
     "mongodb-uri": "^0.9.7",
     "mongoose": "^5.6.8",
+    "multi-progress": "^2.0.0",
     "nanomatch": "^1.2.13",
     "node-spinner": "0.0.4",
     "object-assign-deep": "^0.4.0",

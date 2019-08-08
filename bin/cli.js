@@ -68,6 +68,7 @@ const commands = require('../lib/cli/commands');
 			name, version, konzola, optionDefinitions, commands,
 		}, args);
 	} catch (e) {
+		console.log('error');
 		handleException(e);
 	}
 })();
