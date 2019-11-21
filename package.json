@@ -45,6 +45,7 @@
     "elasticsearch": "^16.5.0",
     "eventstore": "^1.15.2",
     "express": "^4.17.1",
+    "fast-json-stringify": "^1.15.6",
     "fast-stringify": "^2.0.0",
     "fs-extra": "^8.1.0",
     "inquirer": "^7.0.0",
