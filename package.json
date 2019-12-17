@@ -29,7 +29,7 @@
     "archiver": "^3.1.1",
     "better-ajv-errors": "^0.6.4",
     "body-parser": "^1.19.0",
-    "bodybuilder": "^2.2.18",
+    "bodybuilder": "^2.2.10",
     "bson": "^4.0.2",
     "chalk": "^3.0.0",
     "chokidar": "^3.3.0",
@@ -38,7 +38,7 @@
     "command-line-commands": "^2.0.1",
     "command-line-usage": "^5.0.5",
     "cors": "^2.8.5",
-    "cqrs-domain": "^2.14.76",
+    "cqrs-domain": "^2.14.77",
     "cqrs-eventdenormalizer": "^1.16.56",
     "cqrs-saga": "^1.11.13",
     "cqrs-swissknife": "0.4.592",
@@ -58,9 +58,9 @@
     "lodash.union": "^4.6.0",
     "micromustache": "^6.1.1",
     "module-alias": "^2.2.2",
-    "mongodb": "^3.3.4",
+    "mongodb": "^3.4.0",
     "mongodb-uri": "^0.9.7",
-    "mongoose": "^5.7.12",
+    "mongoose": "^5.8.1",
     "multi-progress": "^2.0.0",
     "nanomatch": "^1.2.13",
     "node-spinner": "0.0.4",
@@ -72,7 +72,7 @@
     "resolve-from": "^5.0.0",
     "sift": "^9.0.0",
     "uuid": "^3.3.3",
-    "ws": "^7.2.0",
+    "ws": "^7.2.1",
     "yauzl": "^2.10.0"
   }
 }
