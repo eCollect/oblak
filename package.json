@@ -1,6 +1,6 @@
 {
   "name": "oblak",
-  "version": "0.0.955-wip.63",
+  "version": "0.0.955-wip.64",
   "description": "CQRS/ES Distributed Application Builder",
   "main": "index.js",
   "private": false,
@@ -39,7 +39,7 @@
     "command-line-usage": "^5.0.5",
     "cors": "^2.8.5",
     "cqrs-domain": "^2.14.78",
-    "cqrs-eventdenormalizer": "^1.16.56",
+    "cqrs-eventdenormalizer": "^1.16.57",
     "cqrs-saga": "^1.11.13",
     "cqrs-swissknife": "0.4.592",
     "cron-parser": "^2.13.0",
@@ -51,7 +51,7 @@
     "fs-extra": "^8.1.0",
     "inquirer": "^7.0.0",
     "js-levenshtein": "^1.1.6",
-    "json5": "^2.1.1",
+    "json5": "^2.1.2",
     "kellner": "0.0.69",
     "lodash.debounce": "^4.0.8",
     "lodash.merge": "^4.6.2",
@@ -59,9 +59,9 @@
     "lodash.union": "^4.6.0",
     "micromustache": "^6.1.1",
     "module-alias": "^2.2.2",
-    "mongodb": "^3.5.3",
+    "mongodb": "^3.5.5",
     "mongodb-uri": "^0.9.7",
-    "mongoose": "^5.9.2",
+    "mongoose": "^5.9.5",
     "multi-progress": "^2.0.0",
     "nanomatch": "^1.2.13",
     "node-spinner": "0.0.4",
@@ -73,7 +73,7 @@
     "resolve-from": "^5.0.0",
     "sift": "^9.0.0",
     "uuid": "^3.4.0",
-    "ws": "^7.2.1",
+    "ws": "^7.2.3",
     "yauzl": "^2.10.0"
   }
 }
