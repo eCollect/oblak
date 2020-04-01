@@ -1,6 +1,6 @@
 {
   "name": "oblak",
-  "version": "0.0.955-wip.66",
+  "version": "0.0.955-wip.67",
   "description": "CQRS/ES Distributed Application Builder",
   "main": "index.js",
   "private": false,
@@ -16,9 +16,9 @@
     "url": "https://github.com/eCollect/oblak.git"
   },
   "devDependencies": {
-    "eslint": "^6.2.2",
+    "eslint": "^6.8.0",
     "eslint-config-ecollect-base": "^0.1.2",
-    "eslint-plugin-import": "^2.18.2"
+    "eslint-plugin-import": "^2.20.2"
   },
   "author": "eCollect AG.",
   "license": "MIT",
